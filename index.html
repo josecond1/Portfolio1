@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yodahe Teshome - Data Scientist</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #3B82F6;
+      --primary-hover: #2563EB;
+      --background: #F8FAFC;
+      --card-background: #FFFFFF;
+      --text: #1E293B;
+      --text-light: #64748B;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      background-color: var(--background);
+      color: var(--text);
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 4rem;
+      padding: 3rem 0;
+      border-bottom: 2px solid #E2E8F0;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+
+    nav {
+      margin-top: 1.5rem;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+    }
+
+    nav a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .section {
+      background: var(--card-background);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .section:hover {
+      transform: translateY(-3px);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .skill-item {
+      display: flex;
+      align-items: center;
+      padding: 1rem;
+      background: var(--background);
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .skill-item:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateX(5px);
+    }
+
+    .skill-item:hover img {
+      filter: brightness(0) invert(1);
+    }
+
+    .experience-item {
+      border-left: 3px solid var(--primary);
+      padding-left: 1.5rem;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .experience-item h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .experience-item::before {
+      content: '';
+      position: absolute;
+      left: -8px;
+      top: 5px;
+      width: 12px;
+      height: 12px;
+      background: var(--primary);
+      border-radius: 50%;
+    }
+
+    .contact-links {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .contact-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.8rem 1.5rem;
+      background: var(--primary);
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .contact-links a:hover {
+      background: var(--primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.3);
+    }
+
+    .certificate-links {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .certificate-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.8rem 1.5rem;
+      background: var(--primary);
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .certificate-links a:hover {
+      background: var(--primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.3);
+    }
+
+    .project-links {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .project-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.8rem 1.5rem;
+      background: var(--primary);
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .project-links a:hover {
+      background: var(--primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.3);
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 1rem;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      nav ul {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Yodahe Teshome</h1>
+    <p>Data Scientist</p>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#certificates">Certificates</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- About Section -->
+  <section class="section" id="about">
+    <h2>About</h2>
+    <p class="text-lg text-gray-600 mb-4">Hello, my name is Yodahe Teshome. I am a passionate data scientist with a strong foundation in computer science and an insatiable curiosity for all things data. I graduated from Hilcoe School of Computer Science & Technology, where I developed a solid understanding of core programming principles, algorithms, and software development practices. But my journey didn’t stop there.</p>
+    <p class="text-lg text-gray-600">After completing my degree, I dove headfirst into specialized fields that truly excite me: machine learning engineering, data engineering, and financial analysis—especially as they apply to the fintech sector. To deepen my expertise, I completed an intensive certification program at 10 Academy, which equipped me with hands-on experience in building scalable machine learning models, designing robust data pipelines, and analyzing complex financial datasets. This training has been instrumental in shaping my career path and allowing me to tackle real-world challenges.</p>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="section" id="skills">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" width="24">
+        Python
+      </div>
+      <div class="skill-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow" width="24">
+        TensorFlow
+      </div>
+      <div class="skill-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original-wordmark.svg" alt="PyTorch" width="24">
+        PyTorch
+      </div>
+      <div class="skill-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="AWS" width="24">
+        AWS
+      </div>
+      <div class="skill-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original-wordmark.svg" alt="Docker" width="24">
+        Docker
+      </div>
+      <div class="skill-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain-wordmark.svg" alt="Kubernetes" width="24">
+        Kubernetes
+      </div>
+      <div class="skill-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/powerbi/powerbi-original.svg" alt="Power BI" width="24">
+        Power BI
+      </div>
+      <div class="skill-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg" alt="SQL" width="24">
+        SQL
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section class="section" id="experience">
+    <h2>Experience</h2>
+    <div class="experience-item">
+      <h3>Data Scientist - Chip Chip</h3>
+      <p class="text-gray-600 mb-2">2025 - Present</p>
+      <ul class="list-disc list-inside text-gray-600">
+        <li>Developed Different KPi Which Used For Business Descisions </li>
+        <li>Build and deploy predictive models to support business objectives, 
+          such as customer segmentation, recommendation systems, and demand forecasting, 
+          specifically tailored for social e-commerce</li>
+        <li>Implemented real-time analytics dashboard for business metrics</li>
+      </ul>
+    </div>
+    <div class="experience-item">
+      <h3>AsifTechnologies - Intern</h3>
+      <p class="text-gray-600 mb-2">(April)2023 – (November)2024</p>
+      <ul class="list-disc list-inside text-gray-600">
+        <li>Developed different dashboards using Power BI and Streamlit to support stakeholders in decision-making. </li>
+        <li>With Data Engineer's  Optimized model performance for cloud deployment</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="section" id="projects">
+    <h2>Projects</h2>
+    <div class="project-links">
+      <a href="https://github.com/jodahe1/Bati-Bank.git" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-1 17l-5-5.299 1.399-1.43 3.574 3.736 6.572-6.806 1.455 1.403-8 8.597z"/>
+        </svg>
+        Bati Bank - A fintech project focusing on financial data analysis and predictive modeling.
+      </a>
+      <a href="https://github.com/jodahe1/Kara-Solutions.git" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-1 17l-5-5.299 1.399-1.43 3.574 3.736 6.572-6.806 1.455 1.403-8 8.597z"/>
+        </svg>
+        Kara Solutions - A data engineering project involving ETL pipelines and data visualization.
+      </a>
+      <a href="https://github.com/jodahe1/Rossmann-Pharmaceuticals-.git" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-1 17l-5-5.299 1.399-1.43 3.574 3.736 6.572-6.806 1.455 1.403-8 8.597z"/>
+        </svg>
+        Rossmann Pharmaceuticals - Sales forecasting and data analysis for a pharmaceutical company.
+      </a>
+      <a href="https://github.com/jodahe1/DATA-SCIENCE-JOB-MARKET-EDA-.git" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-1 17l-5-5.299 1.399-1.43 3.574 3.736 6.572-6.806 1.455 1.403-8 8.597z"/>
+        </svg>
+        Data Science Job Market EDA - Exploratory data analysis of the data science job market.
+      </a>
+    </div>
+  </section>
+
+  <!-- Certificates Section -->
+  <section class="section" id="certificates">
+    <h2>Certificates</h2>
+    <div class="certificate-links">
+      <a href="https://drive.google.com/file/d/19wUztXKIDWumdvsS0np-LY4cS4WXy0Im/view?usp=sharing" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-1 17l-5-5.299 1.399-1.43 3.574 3.736 6.572-6.806 1.455 1.403-8 8.597z"/>
+        </svg>
+        Data Analysis Fundamentals - Udacity
+      </a>
+      <a href="https://drive.google.com/file/d/1-lqA03E33SkNr2Xo7snbyHav12qp7I4x/view?usp=sharing" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-1 17l-5-5.299 1.399-1.43 3.574 3.736 6.572-6.806 1.455 1.403-8 8.597z"/>
+        </svg>
+        10 Academy Certification
+      </a>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section" id="contact">
+    <h2>Contact</h2>
+    <div class="contact-links">
+      <a href="mailto:yodahe.teshome@example.com">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"/>
+        </svg>
+        Email
+      </a>
+      <a href="https://www.linkedin.com/in/example" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-9 3h-3v10h3V6m1 4v6h3v-3h1.92c.85 0 1.28-.43 1.28-1.28V9.28c0-.85-.43-1.28-1.28-1.28H12m0 1h2v1h-2V10z"/>
+        </svg>
+        LinkedIn
+      </a>
+    </div>
+  </section>
+
+</body>
+</html>
